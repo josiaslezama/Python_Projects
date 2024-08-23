@@ -1,0 +1,49 @@
+def add (n1 , n2):
+  return n1 + n2
+
+def substract (n1 , n2):
+  return n1 - n2
+
+def multiply (n1 , n2):
+  return n1 * n2
+
+def divide (n1 , n2):  
+  return n1/n2
+
+operations_dictionary = {
+  "+" : add,
+  "-" : substract, 
+  "*" : multiply,
+  "/" : divide,
+}
+for symb in operations_dictionary:
+  print(symb)
+
+def calculator():
+  should_accumulate = True
+  
+  print ("What is your first number?")
+  num1 = float(input())
+
+  while should_accumulate:
+  
+    print ("What operation would you like to perform? \n")
+    operation_performed = input()
+    
+    print ("What is your second number? \n")
+    num2 = float(input())
+    
+    calculation_function = operations_dictionary[operation_performed](num1,num2)
+    
+    print(f"{num1} {operation_performed} {num2} = {calculation_function}")
+    
+    continue_input =input ("Would you like to continue with the previous result? type'y'or 'n'\n")
+    if continue_input == "y":
+      num1 = calculation_function
+    
+    elif continue_input == "n":
+      should_accumulate = False
+    break
+  
+calculator ()
+  
